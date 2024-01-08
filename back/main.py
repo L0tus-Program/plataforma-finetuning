@@ -1,8 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, send_from_directory
 from flask_cors import CORS
 from utils import *
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='static', template_folder='templates')
 CORS(app)  # Adiciona a configuração de CORS ao aplicativo
 
 
@@ -31,9 +31,8 @@ def padrao():
 
 
 @app.route('/', methods=['GET'])
-def barra():
-    # return ("API online"),200
-    return ("API ONLINE"), 200
+def index():
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
