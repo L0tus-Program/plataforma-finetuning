@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -7,7 +8,6 @@ import Select from '@mui/material/Select';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Alert from '@mui/material/Alert';
-import './App.css';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -15,7 +15,7 @@ import '@fontsource/roboto/700.css';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PixIcon from '@mui/icons-material/Pix';
-
+import Box from '@mui/material/Box';
 
 function App() {
   const [system, setSystem] = useState('');
@@ -83,13 +83,13 @@ function App() {
   };
 
   return (
-    <Grid
-      container
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      style={{ minHeight: '100vh' }}
-      spacing={2}
+    <><Grid
+    container
+    direction="column"
+    justifyContent="center"
+    alignItems="center"
+    style={{ minHeight: '100vh' }} // Isso centraliza verticalmente o conteúdo
+    spacing={2}
     >
       <Grid item xs={12}>
         <Typography variant="h5" gutterBottom>
@@ -100,16 +100,14 @@ function App() {
         <TextField
           label="System"
           value={system}
-          onChange={(e) => setSystem(e.target.value)}
-        />
+          onChange={(e) => setSystem(e.target.value)} />
       </Grid>
       <Grid item xs={12}>
         <TextField
           label="Key"
           type="password"
           value={key}
-          onChange={(e) => setKey(e.target.value)}
-        />
+          onChange={(e) => setKey(e.target.value)} />
       </Grid>
       <Grid item xs={12}>
         <Select
@@ -123,7 +121,9 @@ function App() {
             Selecione um modelo
           </MenuItem>
           <MenuItem value="gpt-3.5-turbo">GPT-3.5 Turbo</MenuItem>
-          <MenuItem value="gpt-4.0-plus">GPT-4.0 Plus</MenuItem>
+          <MenuItem value="gpt-3.5-turbo-1106">GPT-3.5 Turbo-1106</MenuItem>
+          <MenuItem value="gpt-4">GPT-4</MenuItem>
+          <MenuItem value="gpt-4-1106-preview">GPT-4 Turbo</MenuItem>
         </Select>
       </Grid>
 
@@ -134,16 +134,14 @@ function App() {
               label={`User ${index + 1}`}
               value={item.user}
               onChange={(e) => handleInfoChange(index, 'user', e.target.value)}
-              fullWidth
-            />
+              fullWidth />
           </Grid>
           <Grid item xs={6}>
             <TextField
               label={`Response ${index + 1}`}
               value={item.response}
               onChange={(e) => handleInfoChange(index, 'response', e.target.value)}
-              fullWidth
-            />
+              fullWidth />
           </Grid>
           <Grid item xs={12}>
             <Button onClick={() => handleRemoveInfo(index)}>Remover</Button>
@@ -155,7 +153,7 @@ function App() {
       </Grid>
 
       <Grid item xs={12} className="buttonsContainer">
-        <ButtonGroup variant="contained" aria-label="outlined primary button group">
+        <ButtonGroup variant="text" size='large' aria-label="outlined primary button group">
           <Button color='error' className="clearButton" onClick={handleClear}>Limpar</Button>
           <Button className="sendButton" onClick={handleSubmit}>Enviar</Button>
         </ButtonGroup>
@@ -175,19 +173,35 @@ function App() {
       <Grid item xs={12}>
         <Typography variant="subtitle1" gutterBottom>
           Colabore!
-      
+
         </Typography>
         <Typography variant="subtitle1" gutterBottom>
-          PayPal: felipesgomes.1@gmail.com <MonetizationOnIcon fontSize='large'/>
+          PayPal: felipesgomes.1@gmail.com <MonetizationOnIcon fontSize='large' />
         </Typography>
         <Typography variant="subtitle1" gutterBottom>
           Mercado Pago: <a href='https://link.mercadopago.com.br/plataformafine' target='_blank' rel='noreferrer'><MonetizationOnIcon fontSize='large' /></a>
         </Typography>
         <Typography variant="subtitle1" gutterBottom>
-          Pix: <a href='https://www.linkedin.com/in/felipelgomes/' target='_blank' rel="noreferrer"><PixIcon fontSize='large' /></a>
+          Pix: 51992090470<a href='https://www.linkedin.com/in/felipelgomes/' target='_blank' rel="noreferrer"><PixIcon fontSize='large' /></a>
         </Typography>
       </Grid>
-    </Grid>
+    </Grid><Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={4}>
+            
+          </Grid>
+          <Grid item xs={4}>
+            
+          </Grid>
+          
+          <Grid item xs={4}>
+           
+          </Grid>
+          <Grid item xs={8}>
+            
+          </Grid>
+        </Grid>
+      </Box></>
   );
 }
 
