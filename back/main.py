@@ -6,6 +6,16 @@ app = Flask(__name__,static_folder='static', template_folder='templates')
 CORS(app)  # Adiciona a configuração de CORS ao aplicativo
 
 
+
+@app.route('/teste_zoho',methods=["POST"])
+def zoho():
+    try:
+        data = request.get_json()
+        print(data)
+        return jsonify({"recebido": f"{data}"}),200
+    except Exception as e:
+        return jsonify({"Erro": f"{e}"}),400
+
 @app.route('/receber_dados', methods=['POST'])
 def receber_dados():
     data = request.get_json()
@@ -24,14 +34,17 @@ def receber_dados():
     return jsonify({'message': 'Dados recebidos com sucesso!'}), 200
 
 
-@app.route('/teste', methods=['GET'])
-def padrao():
-    # return ("API online"),200
-    return jsonify({'message': 'Dados recebidos com sucesso!'}), 200
+@app.route('/test', methods=['GET'])
+def teste():
+    try:
 
+        return jsonify({'message': 'API Online'}),200
+    except Exception as e:
+        return jsonify({'message': f'Erro: {e}'}),400
 
 @app.route('/', methods=['GET'])
 def index():
+    register()
     return render_template('index.html')
 
 

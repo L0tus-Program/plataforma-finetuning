@@ -15,8 +15,9 @@ import '@fontsource/roboto/700.css';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PixIcon from '@mui/icons-material/Pix';
-import Box from '@mui/material/Box';
 
+
+ 
 function App() {
   const [system, setSystem] = useState('');
   const [key, setKey] = useState('');
@@ -173,7 +174,6 @@ function App() {
       <Grid item xs={12}>
         <Typography variant="subtitle1" gutterBottom>
           Colabore!
-
         </Typography>
         <Typography variant="subtitle1" gutterBottom>
           PayPal: felipesgomes.1@gmail.com <MonetizationOnIcon fontSize='large' />
@@ -182,26 +182,18 @@ function App() {
           Mercado Pago: <a href='https://link.mercadopago.com.br/plataformafine' target='_blank' rel='noreferrer'><MonetizationOnIcon fontSize='large' /></a>
         </Typography>
         <Typography variant="subtitle1" gutterBottom>
-          Pix: 51992090470<a href='https://www.linkedin.com/in/felipelgomes/' target='_blank' rel="noreferrer"><PixIcon fontSize='large' /></a>
+          Pix: 51992090470 <PixIcon fontSize='large' />
         </Typography>
       </Grid>
-    </Grid><Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
-            
-          </Grid>
-          <Grid item xs={4}>
-            
-          </Grid>
-          
-          <Grid item xs={4}>
-           
-          </Grid>
-          <Grid item xs={8}>
-            
-          </Grid>
-        </Grid>
-      </Box></>
+    </Grid>
+    <iframe
+      title='Jerbis'
+      src="https://aai.conexaoia.digital/basic-chat-gpt-36odpbs"
+      style={{border: 'none', width:'100%', height:'600px'}}
+    ></iframe>
+    </>
+    
+    
   );
 }
 
