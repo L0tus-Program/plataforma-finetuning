@@ -3,6 +3,13 @@ import os
 import json
 import sqlite3 
 
+def consulta_registros():
+    conn = sqlite3.connect("registro.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM registros")  # Corrigido o erro na consulta SQL
+    data = cursor.fetchall()
+    conn.close()  # Feche a conexão após obter os dados
+    return data
 
 # Registrar numero de acessos na página
 def register():

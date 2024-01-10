@@ -18,20 +18,29 @@ def zoho():
 
 @app.route('/receber_dados', methods=['POST'])
 def receber_dados():
-    data = request.get_json()
+    try:
+        data = request.get_json()
 
-    # Faça o que quiser com os dados recebidos
-    print("Dados recebidos:")
-    print(data)
-    key = data["key"]
-    model = data["models"]
-    # Supondo que 'data' é o JSON enviado pela aplicação React
-    create_jsonl_from_json(data)
-    send_fine(key, model)
-    # delete_jsonl()
+        # Faça o que quiser com os dados recebidos
+        print("Dados recebidos:")
+        print(data)
+        key = data["key"]
+        model = data["models"]
+        # Supondo que 'data' é o JSON enviado pela aplicação React
+        create_jsonl_from_json(data)
+        send_fine(key, model)
+        # delete_jsonl()
 
-    # Pode retornar uma mensagem de sucesso se necessário
-    return jsonify({'message': 'Dados recebidos com sucesso!'}), 200
+        # Pode retornar uma mensagem de sucesso se necessário
+        return jsonify({'message': 'Dados recebidos com sucesso!'}), 200
+    except Exception as e:
+        return jsonify({'Error':f'{e}'}),400
+
+ 
+@app.route('/registros',methods=['GET'])
+def registros_endpoint():
+    data = consulta_registros()
+    return (data),200
 
 
 @app.route('/test', methods=['GET'])
