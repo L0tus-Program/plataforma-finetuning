@@ -17,7 +17,17 @@ import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PixIcon from '@mui/icons-material/Pix';
 
 
- 
+function typebot() {
+  const typebotInitScript = document.createElement("script");
+  typebotInitScript.type = "module";
+  typebotInitScript.innerHTML = `import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.2/dist/web.js'
+
+    Typebot.initBubble({typebot: "basic-chat-gpt-ou3ekz6" });
+    `;
+  document.body.append(typebotInitScript);
+}
+
+
 function App() {
   const [system, setSystem] = useState('');
   const [key, setKey] = useState('');
@@ -85,12 +95,12 @@ function App() {
 
   return (
     <><Grid
-    container
-    direction="column"
-    justifyContent="center"
-    alignItems="center"
-    style={{ minHeight: '100vh' }} // Isso centraliza verticalmente o conteúdo
-    spacing={2}
+      container
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      style={{ minHeight: '100vh' }} // Isso centraliza verticalmente o conteúdo
+      spacing={2}
     >
       <Grid item xs={12}>
         <Typography variant="h5" gutterBottom>
@@ -186,14 +196,11 @@ function App() {
         </Typography>
       </Grid>
     </Grid>
-    <iframe
-      title='Jerbis'
-      src="https://aai.conexaoia.digital/basic-chat-gpt-36odpbs"
-      style={{border: 'none', width:'100%', height:'600px'}}
-    ></iframe>
+
+      <typebot />
     </>
-    
-    
+
+
   );
 }
 
