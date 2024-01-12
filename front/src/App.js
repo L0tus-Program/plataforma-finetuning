@@ -17,7 +17,7 @@ import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PixIcon from '@mui/icons-material/Pix';
 
 
-function typebot() {
+/*function typebot() {
   const typebotInitScript = document.createElement("script");
   typebotInitScript.type = "module";
   typebotInitScript.innerHTML = `import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.2/dist/web.js'
@@ -25,7 +25,7 @@ function typebot() {
     Typebot.initBubble({typebot: "basic-chat-gpt-ou3ekz6" });
     `;
   document.body.append(typebotInitScript);
-}
+}*/
 
 
 function App() {
@@ -70,7 +70,7 @@ function App() {
     const dataToSend = { system, key, models, info };
 
     // Enviar os dados como um POST usando fetch
-    fetch('http://127.0.0.1:5000/receber_dados', {
+    fetch('https://fine.lotus-dev.com.br/receber_dados', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -205,3 +205,4 @@ function App() {
 }
 
 export default App;
+ 
